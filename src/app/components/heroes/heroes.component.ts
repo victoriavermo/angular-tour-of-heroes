@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../interfaces/hero';
-import { HeroService } from '../services/hero.service';
+import { Hero } from '../../interfaces/hero';
+import { HeroService } from '../../services/hero.service';
 
 @Component({
   selector: 'app-heroes',
@@ -28,7 +28,8 @@ export class HeroesComponent implements OnInit {
   }
 
   getHeroes(): void {
-    this.heroes = this.heroService.getHeroes();
+    this.heroService.getHeroes()
+        .subscribe(heroes => this.heroes = heroes);
   }
 
 }
